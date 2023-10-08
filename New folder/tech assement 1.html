@@ -1,0 +1,147 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        body {
+background-color: rgb(189, 239, 245);
+background-image: url(gate_pixel.jpg);  
+background-size: cover;
+background-repeat:no-repeat;
+}
+  
+.mydiv { width: 350px;
+    height: 200px;
+    background-color: none;
+    position: relative;
+left: 50%;}
+  .mydiv img { width: 350px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    }
+    .mydiv2 { width: 350px;
+    height: 200px;
+    background-color: none;
+    position: relative;
+left: 20%;}
+  .mydiv2 img { width: 350px;
+    height: 200px;
+    position: absolute;
+    left: 20%;
+    }
+
+   </style>
+</head>
+<body>
+    <h1> help the cat catch the bird <button onclick="start ()" > start </button> </h1> 
+        
+        </div>
+     
+    <div class="mydiv" id="mydiv" onclick= "tuesday ()">  
+       
+        <img src="bird1.png" 
+        id="bird1" >
+    </div>
+<div class="mydiv2" id="mydiv2"  onclick="wednesday()">
+    <img src="bird1.png" 
+    id="bird2" > 
+</div>
+<h2  id="message"> Score: 0 </h2>
+<div class="catdiv">  <img src="cat.png" ></div>
+
+
+
+    <script>
+         // generating a random integer within a specific range
+        var min = 1500;
+        var max = 2000;
+        const randomInteger = Math.floor(Math.random() * (max - min + 1)) + min;
+        var min2 = 2000
+        var max2 = 3000
+        const randomInteger2 = Math.floor(Math.random() * (max2 - min2 + 1)) + min2;
+        var bird1 =document.getElementById ("bird1")
+        var bird2 =document.getElementById ("bird2")
+        var message = document.getElementById("message");
+        var mydiv =document.getElementById ('mydiv')
+        var mydiv2 =document.getElementById ('mydiv2')
+        var score = 0
+        var failPage = "fail.html";
+var bronzePage = "bronze.html";
+var silverPage = "silver.html";
+var goldPage = "gold.html";
+        
+        var intervalBird1;
+        var intervalBird2;
+       
+        function start() {
+            intervalBird1 =
+            setInterval(() => {
+            bird1.src = "two.png";
+            setTimeout(() => {
+                    bird1.src = "bird1.png";
+                }, 500);
+            }, randomInteger);
+            intervalBird2 = setInterval(() => {
+                bird2.src = "two.png";
+                setTimeout(() => {
+                    bird2.src = "bird1.png";
+                }, 1500);
+            }, randomInteger2);
+           
+
+
+            setTimeout(() => {
+        clearInterval(intervalBird1);
+        clearInterval(intervalBird2);
+         // Clear the intervals after 20 seconds
+        if (score < 0) {
+            window.location.href = failPage;
+        } else if (score < 5) {
+            window.location.href = bronzePage;
+        } else if (score < 10) {
+            window.location.href = silverPage;
+        } else {
+            window.location.href = goldPage;
+        }
+    }, 20000); // 20000 milliseconds = 20 seconds
+}
+
+
+
+   // endsWith  to check if the src attribute of the bird1 image ends with "two.png". This ensures that you're only increasing the score when the correct image is in the div.
+function tuesday() {
+    if (bird1.src.endsWith("two.png")) {
+        score++;
+        bird1.src = "bird1.png";
+        message.textContent = "Score: " + score;
+    }
+    else { score--;}
+    message.textContent = "Score: " + score;
+}
+   function wednesday () { 
+       if (bird2.src.endsWith("two.png")) {
+        score++;
+        bird2.src = "bird1.png";
+        message.textContent = "Score: " + score;
+    }
+    else { score--;
+        message.textContent = "Score: " + score;}
+}
+      
+        
+    
+       
+console.log("time in ms:", randomInteger);
+      
+        
+       
+    </script>
+    
+    
+</body>
+</html>

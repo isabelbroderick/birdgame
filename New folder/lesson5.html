@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="quizQuestion"></h1>
+    <input id="userinput">
+    
+    <button onclick="next()"> next</button> <br>
+    <h1 id="message"> </h1> 
+
+
+
+    <script>
+         var mylist =[2,3,4,5]
+        var userinput = document.getElementById("userinput");
+        var quizQuestion =document.getElementById("quizQuestion");
+        var message = document.getElementById("message");
+        var score = 0
+        var questiondata = ['what is 2+2', "what is 3+3", "what is 4+4","your done"];
+        var questionstate = 0
+
+        quizQuestion.innerHTML = questiondata [questionstate];
+        function next() {  
+              if(userinput.value == "4") {
+        document.body.style.backgroundColor ="green";
+        questionstate = questionstate + 1
+        message.innerHTML = "correct, your score is " + questionstate;
+            
+            quizQuestion.innerHTML = questiondata [questionstate];
+
+        }}
+
+        for ( let i=0; i<4; i++ ) {
+        setTimeout ( () => {console.log (mylist[i])
+
+        }, i*2000)
+        
+       }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> how many students at MC</h1>
+    <input id="userinput">
+    <button onclick="submit()"> submit</button> <br>
+    <h1 id="message"> </h1> <br>
+
+    <h1> how many divinyas at MC </h1>
+    <input id="userinput1">
+    <button onclick="submit1()">submit</button> <br>
+    <h1 id="message1"></h1>
+    
+
+
+
+
+
+    <script>
+        var userinput = document.getElementById("userinput");
+        var message = document.getElementById("message");
+
+        var score = 0
+
+        var userinput1 = document.getElementById("userinput1");
+        var message1 = document.getElementById("message1");
+        
+        function submit1 () { if(userinput1.value == "1") {
+        document.body.style.backgroundColor ="green";
+        score += 1
+        message1.innerHTML = "correct, your score is " + score;}
+        else { 
+        document.body.style.backgroundColor ="red";
+        message1.innerHTML = "wrong your score is " + score;}
+    }
+         
+
+        function submit () {
+          if(userinput.value == "753") {
+        document.body.style.backgroundColor ="green";
+        score += 1
+        message1.innerHTML = "correct, your score is " + score;
+        
+    } else { 
+        document.body.style.backgroundColor ="red";
+        message1.innerHTML = "wrong your score is " + score;
+         }
+        }
+
+
+    </script> 
+</body>
+</html>

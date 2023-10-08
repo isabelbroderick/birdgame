@@ -1,0 +1,75 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myDiv {background-color: blueviolet; height: 50%;}
+    </style>
+</head>
+<body>
+
+    <h1 id="quizQuestion"></h1>
+    <input id="userInput">
+    <button onclick="next()">Next</button>
+    <h1 id="message"></h1>
+    <div onclick="myFunction()" id="myDiv">
+        hkhkhjk
+    </div>
+
+    <script>
+        var userInput = document.getElementById("userInput");
+        var message = document.getElementById("message");
+        var score =0
+        var quizQuestion = document.getElementById("quizQuestion");
+        var questionData = [
+            {
+                question: "What is 5+2?",
+                answer: "7"
+            },
+            {
+                question: "What is 4+9?",
+                answer: "13"
+            },
+            {
+                question: "What is 6+15?",
+                answer: "21"
+            },
+            {
+                question: "What is 11+8?",
+                answer: "19"
+            }
+        ]
+        var questionState = 0
+
+        quizQuestion.innerHTML = questionData [questionState]['question'];
+
+
+        function update () { 
+            if ( questionState == 3) { 
+                message.innerHTML = " your score is " +(score/4)*100 + "%";}
+                questionState++
+            quizQuestion.innerHTML = questionData [questionState]['question'];
+                userInput.value = ""
+        }
+        function next() {
+            if(userInput.value == questionData[questionState]['answer']) {
+                document.body.style.backgroundColor = "green";
+                score ++
+            update ()
+                
+            }
+            else {
+                document.body.style.backgroundColor = "red";
+                score = score
+        
+               update ( )
+            }
+                
+           
+        }
+    </script>
+   
+</body>
+</html>
